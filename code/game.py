@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 from code.Score import Score
@@ -30,27 +32,6 @@ class Game:
             elif menu_return == MENU_OPTION[3]:
                 (score.show
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                  ())
 
             elif menu_return == MENU_OPTION[4]:
@@ -58,4 +39,5 @@ class Game:
                 quit()
 
             else:
-                pass
+                pygame.quit()
+                sys.exit()

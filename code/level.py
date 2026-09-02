@@ -25,7 +25,7 @@ class Level:
         self.entity_list.append(player)
         if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
             player = EntityFactory.get_entity("Player2")
-            player.score =\
+            player.score = \
                 player_score[1]
             self.entity_list.append(player)
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
@@ -33,6 +33,7 @@ class Level:
 
     def run(self, player_score: list[int]):
         pygame.mixer_music.load(f"./asset/{self.name}.mp3")
+        pygame.mixer_music.set_volume(0.3)
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
         while True:
@@ -76,8 +77,8 @@ class Level:
                     return False
 
             # Printed text
-            self.level_text(14, f"{self.name} - timeout: {self.timeout / 1000 :1f}s", C_WHITE, (10, 5))
-            self.level_text(14, f"fps: {clock.get_fps()}", C_WHITE, (10, WIN_HEIGHT - 35))
+            self.level_text(14, f"{self.name} - timeout: {self.timeout / 1000:1f}s", C_WHITE, (10, 5))
+            self.level_text(14, f"fps: {clock.get_fps():0.f}s", C_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(14, f"entidades: {len(self.entity_list)}", C_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
             # Collitions
